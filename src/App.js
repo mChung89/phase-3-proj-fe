@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from './NavBar'
+import Stack from '@mui/material/Stack'
+import './styles/App.css';
+import './images/hero.png'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <h1>Hello World</h1>
+      <Stack direction="row" sx={{height: "600", bgcolor: "red"}}>
+        <img src="./images/grid-layout.png"/>
+      </Stack>
     </div>
   );
 }
