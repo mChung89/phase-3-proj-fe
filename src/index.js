@@ -9,8 +9,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      {/* <Route path="listings" element={<Expenses />} />
-      <Route path="mylistings" element={<Invoices />} /> */}
+      <Route path="/listings" element={<App />} />
+      {/* <Route path="mylistings" element={<Invoices />} /> */}
     </Routes>
   </BrowserRouter>
 );
