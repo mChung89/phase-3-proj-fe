@@ -53,6 +53,8 @@ export default function NavBar() {
           <Tab component={Link} to="/" label="Home" {...a11yProps(0)} />
           <Tab component={Link} to='/listings' label="Listings" {...a11yProps(1)} />
           <Tab label="Something" {...a11yProps(2)} />
+          <Tab component={Link} to="/listings" label="Listings" {...a11yProps(1)} />
+          <Tab label="Item Three" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>

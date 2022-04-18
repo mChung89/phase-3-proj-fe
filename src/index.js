@@ -2,15 +2,15 @@ import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './styles/index.css';
 import App from './App';
-
+import SpacingGrid from './Grid';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/listings" element={<App />} />
-      {/* <Route path="mylistings" element={<Invoices />} /> */}
+      <Route path="listings" element={<SpacingGrid />} />
+      {/*<Route path="mylistings" element={<Invoices />} /> */}
     </Routes>
   </BrowserRouter>
 );
