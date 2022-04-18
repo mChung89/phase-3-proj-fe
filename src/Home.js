@@ -1,8 +1,4 @@
 import { Box, Grid, Container } from '@mui/material'
-// import mountain from './images/mountain.jpeg'
-// import arctic from './images/arctic.jpeg'
-// import tropical from './images/tropical.jpeg'
-// import city from './images/city.jpeg'
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
