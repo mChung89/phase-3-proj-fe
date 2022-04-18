@@ -39,7 +39,7 @@ const mappedListings = listings.map(listing => {
                     </Grid>    
               </Grid> 
           </Grid>
-        );
+        
 
       </div>
   )}

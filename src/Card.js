@@ -13,7 +13,7 @@ export default function MultiActionAreaCard({location, description, price, title
           component="img"
           height="140"
           image= {image}
-          alt="green iguana"
+          alt="mapped vacation images"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

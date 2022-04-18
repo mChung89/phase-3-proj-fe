@@ -1,27 +1,27 @@
 import { Box, Grid, Container } from '@mui/material'
-import mountain from './images/mountain.jpeg'
-import arctic from './images/arctic.jpeg'
-import tropical from './images/tropical.jpeg'
-import city from './images/city.jpeg'
+// import mountain from './images/mountain.jpeg'
+// import arctic from './images/arctic.jpeg'
+// import tropical from './images/tropical.jpeg'
+// import city from './images/city.jpeg'
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 const images = [(
     <ImageListItem>
-        <img src={mountain} />
+        <img src="https://idsb.tmgrup.com.tr/ly/uploads/images/2020/11/25/thumbs/800x531/74707.jpg" />
         <ImageListItemBar title="Mountain"/>
     </ImageListItem>),(
     <ImageListItem>
-        <img src={arctic} />
+        <img src="https://cdn.shopify.com/s/files/1/0043/8471/8938/products/163580814332612491.jpg?v=1635808333" />
         <ImageListItemBar title="Arctic"/>
     </ImageListItem>),(
     <ImageListItem>
-        <img src={tropical} />
+        <img src="https://www.planetware.com/photos-large/SEY/best-tropical-vacations-bora-bora.jpg" />
         <ImageListItemBar title="Tropical"/>
     </ImageListItem>),(
     <ImageListItem>
-        <img src={city} />
+        <img src="https://s.hdnux.com/photos/01/22/22/74/21573426/3/rawImage.jpg" />
         <ImageListItemBar title="City"/>
     </ImageListItem>)
     ]
