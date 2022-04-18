@@ -25,7 +25,7 @@ export default function MultiActionAreaCard({location, description, price, title
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" className='btn'>
           More info
         </Button>
       </CardActions>
