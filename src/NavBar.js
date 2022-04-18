@@ -51,18 +51,23 @@ export default function NavBar() {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab component={Link} to="/" label="Home" {...a11yProps(0)} />
+<<<<<<< HEAD
           <Tab component={Link} to="/listings" label="Listings" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} />
+=======
+          <Tab component={Link} to='/listings' label="Listings" {...a11yProps(1)} />
+          <Tab label="Something" {...a11yProps(2)} />
+>>>>>>> mike-day1
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One
+        <Typography variant="h4">Home</Typography>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+      <Typography variant="h4">Listings</Typography>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+      <Typography variant="h4">Something</Typography>
       </TabPanel>
     </Box>
   );

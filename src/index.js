@@ -9,7 +9,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="listings" element={<SpacingGrid />} />
+      <Route path="/listings" element={<SpacingGrid />} />
       {/*<Route path="mylistings" element={<Invoices />} /> */}
     </Routes>
   </BrowserRouter>
