@@ -1,8 +1,8 @@
 import * as ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import './styles/index.css';
 import App from './App';
-import SpacingGrid from './Grid';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
