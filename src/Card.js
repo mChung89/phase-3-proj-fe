@@ -22,12 +22,9 @@ export default function MultiActionAreaCard({location, description, price, title
         .then(data => setReviews(data))
       }, [])
     
-      const mappedReviews = reviews.map(review => {
-        return <li key={review.id}>Rating: {review.rating}/ 10, Comment: {review.comment}</li>
-      })
 
       const randRating = Math.floor(Math.random() * 11)
-
+      
     const style = {
         position: 'absolute',
         top: '50%',
@@ -81,7 +78,7 @@ export default function MultiActionAreaCard({location, description, price, title
             <li><em>{location}</em></li>
             <li>{description}</li> 
             <p>---Reviews---</p>
-            <li>{randRating}/10</li>
+            <ul></ul>
           </Typography>
         </Box>
       </Modal>

@@ -15,10 +15,16 @@ const [listings, setListings] = useState([])
     .then(data => setListings(data))
   }, [])
 
- 
-
   
 
+ const reviewComments = listings.map((listing) => listing.reviews.map((review) => review.comment))
+
+ const commentList = reviewComments.map(comment => {
+   return <li>{comment}</li>
+ })
+
+  
+console.log(listings)
 
 
 const mappedListings = listings.map(listing => {
@@ -44,7 +50,7 @@ const mappedListings = listings.map(listing => {
               <Grid container justifyContent="center" spacing={spacing}>
                 
                     {mappedListings}
-                    
+                    {commentList}
                     </Grid>    
               </Grid> 
           </Grid>
