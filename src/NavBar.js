@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import { Box, Tabs, Tab, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, Modal } from '@mui/material';
+import { Box, Tabs, Tab, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material';
 import { useState } from 'react'
 import { Link } from "react-router-dom";
 import LoginModal from "./LoginModal"
@@ -11,8 +10,7 @@ function a11yProps(index) {
   };
 }
 
-function NavBar() {
-    const [open, setOpen] = useState(false)
+function NavBar({ currentUser, setCurrentUser }) {
     const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -30,10 +28,6 @@ function NavBar() {
     setAnchorEl(null);
   };
 
-  function handleOpen (e) {
-      setOpen(prev => !prev)
-  }
-
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -47,14 +41,14 @@ function NavBar() {
               sx={{ mr: 2 }}
             >
               {" "}
-              It's the App
+              {currentUser === "Guest" ? "Welcome!" : `Welcome ${currentUser.user}`}
             </IconButton>
             <IconButton
               onClick={handleMenu}
               sx={{ ml: "auto" }}
               color="inherit"
             >
-              Login
+              {currentUser === "Guest" ? "Login" : "Account"}
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -72,17 +66,17 @@ function NavBar() {
               onClose={handleClose}
             >
               <LoginModal
+                currentUser={currentUser} 
+                setCurrentUser={setCurrentUser}
                 setAnchorEl={setAnchorEl}
-                open={open}
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
               ></LoginModal>
+              {currentUser !== "Guest" ? <MenuItem onClick={() => setCurrentUser("Guest")}>Logout</MenuItem> : null}
             </Menu>
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "100%",position: "sticky", top: 0, bgcolor: "white" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={value}

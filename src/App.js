@@ -4,18 +4,21 @@ import Home from './Home'
 import ListingPage from './ListingPage'
 import FilteredListings from './routes/FilteredListings'
 import { Routes, Route } from "react-router-dom";
-import Account from './Account'
+import Account from './routes/Account'
+import { useState } from 'react'
+
 
 function App() {
+  const [currentUser, setCurrentUser] = useState("Guest")
   
   return (
     <div className="App">
-      <NavBar />
+      <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route exact path="/listings" element={<ListingPage />} />
         <Route exact path="listings/:climate" element={<FilteredListings />}/>
-        <Route path="/account/:id" element={<Account />} />
+        <Route path="/account/:id" element={<Account currentUser={currentUser}/>} />
       </Routes>
     </div>
   );

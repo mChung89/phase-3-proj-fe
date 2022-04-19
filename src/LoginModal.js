@@ -1,6 +1,7 @@
 import { Box, Button, Typography, Modal, MenuItem, TextField } from '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const loginStyle = {
   position: 'absolute',
@@ -15,7 +16,7 @@ const loginStyle = {
   borderRadius: 5
 };
 
-function LoginModal ({ setAnchorEl }) {
+function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
     let navigate = useNavigate();
     const defaultState = {
         user: '',
@@ -43,11 +44,12 @@ function LoginModal ({ setAnchorEl }) {
     },
   ];
 
-  function handleSubmit (e) {
+  function handleSubmit () {
       let auth = users.find(user => user.user === loginData.user && user.password === loginData.password)
       if (auth) {
           alert("User authorized");
           let id = auth.id
+          setCurrentUser(auth)
           handleClose()
           navigate(`/account/${id}`)
        } else {
@@ -66,7 +68,7 @@ function LoginModal ({ setAnchorEl }) {
 
   return (
     <div>
-      <MenuItem onClick={handleOpen}>My Account</MenuItem>
+      {currentUser === "Guest" ? <MenuItem onClick={handleOpen}>Login</MenuItem> : <MenuItem component={Link} to={`/account/${currentUser.id}`} >Manage Listings</MenuItem>}
       <Modal
         open={loginOpen}
         onClose={handleClose}

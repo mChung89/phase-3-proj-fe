@@ -1,8 +1,6 @@
-import { Box, Container } from "@mui/material";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
+import { Box, Container, Stack, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import { Link } from "react-router-dom";
+import './styles/home.css';
 
 const images = [
   {
@@ -29,6 +27,8 @@ const images = [
     name: "city",
   },
 ];
+
+const hero = "https://cdn.shopify.com/s/files/1/0043/8471/8938/products/BoraBora_Q421_Hero_1_812x.jpg?v=1648685865"
 const renderedImages = images.map((image) => {
   return (
     <Link to={`/listings/${image.name}`}>
@@ -36,7 +36,7 @@ const renderedImages = images.map((image) => {
         <img
           name={image.name}
           src={image.image}
-          loading="lazy"
+          className="climate"
         />
         <ImageListItemBar title={image.title} />
       </ImageListItem>
@@ -46,18 +46,26 @@ const renderedImages = images.map((image) => {
 
 function Home() {
   return (
-    <Container mx={4}>
-      <Box>
-        <ImageList
-          gap={0}
-          cols={2}
-          rowHeight={250}
-          sx={{ overflow: "hidden", borderRadius: 3 }}
-        >
-          {renderedImages}
-        </ImageList>
-      </Box>
-    </Container>
+    <>
+      <Stack>
+        <img id="hero" src={hero} />
+      </Stack>
+      <Stack>
+          <h3>For really indecisive people who want to get away.</h3>
+        <Container mx={4}>
+          <Box>
+            <ImageList
+              gap={0}
+              cols={2}
+              rowHeight={250}
+              sx={{ overflow: "hidden", borderRadius: 3 }}
+            >
+              {renderedImages}
+            </ImageList>
+          </Box>
+        </Container>
+      </Stack>
+    </>
   );
 }
 
