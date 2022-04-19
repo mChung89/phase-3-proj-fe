@@ -44,7 +44,6 @@ const renderedImages = images.map((image) => {
   );
 });
 
-
 function Home() {
   return (
     <Container mx={4}>

@@ -5,3 +5,10 @@
     margin-top: 50px;
   }
 
+  .btn {
+    display: inline-block;
+  }
+
+  ul {
+    text-align: center;
+  }
