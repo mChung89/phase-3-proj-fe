@@ -96,6 +96,7 @@ function NavBar() {
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
             <Tab component={Link} to="/" label="Home" {...a11yProps(0)} />
             <Tab component={Link} to='/listings' label="Listings" {...a11yProps(1)} />
+            
             <Tab label="Something" {...a11yProps(2)} />
           </Tabs>
         </Box>
