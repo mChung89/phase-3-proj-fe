@@ -1,26 +1,16 @@
 import Grid from '@mui/material/Grid';
 import ListingCard from './ListingCard';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Outlet } from "react-router-dom"
 
-function ListingPage() {
+function ListingPage({listings}) {
   const [spacing, setSpacing] = useState(2);
 
   const handleChange = (event) => {
     setSpacing(Number(event.target.value));
   };
 
-  const [listings, setListings] = useState([])
-  
-
-  useEffect(() => {
-    fetch("http://localhost:9292/listings")
-      .then(res => res.json())
-      .then(data => setListings(data))
-  }, [])
-
-  const reviewList = listings.map((listing) => listing.reviews)
-  
+ 
 
   const mappedListings = listings.map(listing => {
     return (
@@ -48,7 +38,7 @@ function ListingPage() {
   )})
 
       
-      console.log(reviewList)
+     
   return (
     <div className='grid'>
       <Grid sx={{ flexGrow: 1 }} container spacing={2}>

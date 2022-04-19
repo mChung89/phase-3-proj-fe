@@ -18,9 +18,7 @@ import BasicAlerts from './Alert';
     const handleClose = () => setOpen(false);
     const [booked, setBooked] = useState(false)
 
- 
 
-      const randRating = Math.floor(Math.random() * 11)
       
     const style = {
         position: 'absolute',
