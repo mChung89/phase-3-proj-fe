@@ -7,21 +7,18 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import BasicModal from './Modal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { Alert } from '@mui/material';
+import BasicAlerts from './Alert';
 
- function ListingCard({location, description, price, title, date, image, type}) {
+ function ListingCard({location, description, price, title, date, image, type, comment}) {
 
     const [open, setOpen] = React.useState(false);
-    const [reviews, setReviews] = useState([])
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [booked, setBooked] = useState(false)
 
-    useEffect(() => {
-        fetch("http://localhost:9292/reviews")
-        .then(res => res.json())
-        .then(data => setReviews(data))
-      }, [])
-    
+ 
 
       const randRating = Math.floor(Math.random() * 11)
       
@@ -37,8 +34,14 @@ import { useEffect, useState } from 'react';
         p: 4,
       };
   
+      function handleBooking(){
+        setBooked(prev => !prev)
+      }
 
+      
   return (
+  
+    
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
@@ -61,7 +64,9 @@ import { useEffect, useState } from 'react';
       </CardActionArea>
       <CardActions>
       <div>
+        
       <Button onClick={handleOpen}>More info</Button>
+      <Button onClick={handleBooking}>{!booked ? "Click Here to Reserve now!" : <Alert variant="filled" severity="success">Your reservation is booked!</Alert>}</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -76,15 +81,16 @@ import { useEffect, useState } from 'react';
             <li>Daily Rate: ${price}</li>
             <li>Location Type: {type}</li>
             <li><em>{location}</em></li>
-            <li>{description}</li> 
+            <li>{description}</li>
             <p>---Reviews---</p>
-            <ul></ul>
+            <ul>{comment.length < 1 ? "No users have reviewed this listing!" : comment}</ul>
           </Typography>
         </Box>
       </Modal>
     </div>
       </CardActions>
     </Card>
+
   );
 }
 
