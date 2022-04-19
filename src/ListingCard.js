@@ -1,11 +1,6 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Button, CardActionArea, CardActions } from '@mui/material';
 
-export default function MultiActionAreaCard({location, description, price, title, date, image}) {
+function ListingCard ({location, description, price, title, date, image}) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -33,12 +28,4 @@ export default function MultiActionAreaCard({location, description, price, title
   );
 }
 
-
-
-
-
-
-
-
-
-   
+export default ListingCard

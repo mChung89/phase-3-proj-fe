@@ -31,7 +31,7 @@ const images = [
 ];
 const renderedImages = images.map((image) => {
   return (
-    <Link to={`/listing/${image.name}`}>
+    <Link to={`/listings/${image.name}`}>
       <ImageListItem key={image.title}>
         <img
           name={image.name}

@@ -10,9 +10,6 @@ export default function SimpleContainer({listings}) {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
-        
-        
-        
       </Container>
     </React.Fragment>
   );

@@ -1,7 +1,8 @@
+import './styles/App.css';
 import NavBar from './NavBar'
 import Home from './Home'
-import './styles/App.css';
-import SpacingGrid from './Grid'
+import ListingPage from './ListingPage'
+import FilteredListings from './routes/FilteredListings'
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -11,9 +12,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/listings" element={<SpacingGrid />}>
-          {/* <Route path="/listings/:climate" element={<ClimateListing />} />  */}
-        </Route>
+        <Route exact path="/listings" element={<ListingPage />} />
+        <Route exact path="listings/:climate" element={<FilteredListings />}/>
       </Routes>
     </div>
   );
