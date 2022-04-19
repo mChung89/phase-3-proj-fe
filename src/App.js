@@ -4,6 +4,7 @@ import Home from './Home'
 import ListingPage from './ListingPage'
 import FilteredListings from './routes/FilteredListings'
 import { Routes, Route } from "react-router-dom";
+import Account from './Account'
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route exact path="/listings" element={<ListingPage />} />
         <Route exact path="listings/:climate" element={<FilteredListings />}/>
+        <Route path="/account/:id" element={<Account />} />
       </Routes>
     </div>
   );

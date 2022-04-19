@@ -9,7 +9,7 @@ const images = [
     image:
       "https://idsb.tmgrup.com.tr/ly/uploads/images/2020/11/25/thumbs/800x531/74707.jpg",
     title: "Mountain",
-    name: "mountian",
+    name: "mountain",
   },
   {
     image:
