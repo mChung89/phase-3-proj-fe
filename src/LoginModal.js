@@ -64,8 +64,6 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
       setLoginData({...loginData, [key]:value})
   }
 
-  console.log(loginData)
-
   return (
     <div>
       {currentUser === "Guest" ? <MenuItem onClick={handleOpen}>Login</MenuItem> : <MenuItem component={Link} to={`/account/${currentUser.id}`} >Manage Listings</MenuItem>}
@@ -77,11 +75,11 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
             <Typography variant="h6" component="h2">
               User Name
             </Typography>
-            <TextField name="user" value={loginData.user} onChange={handleChange}>User Login</TextField>
+            <TextField name="user" type="text" value={loginData.user} onChange={handleChange}>User Login</TextField>
             <Typography variant="h6" component="h2" >
               Password
             </Typography>
-            <TextField name="password" value={loginData.password} onChange={handleChange}>Password</TextField>
+            <TextField type="password" name="password" value={loginData.password} onChange={handleChange}>Password</TextField>
             <br></br>
             <Button onClick={handleSubmit}>Submit</Button>
         </Box>

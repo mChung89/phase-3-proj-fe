@@ -1,6 +1,7 @@
-import { Box, Container, Stack, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+import { Box, Paper, Container, Stack, ImageList, ImageListItem, ImageListItemBar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import './styles/home.css';
+import hero from './images/borabora.jpeg'
 
 const images = [
   {
@@ -28,7 +29,6 @@ const images = [
   },
 ];
 
-const hero = "https://cdn.shopify.com/s/files/1/0043/8471/8938/products/BoraBora_Q421_Hero_1_812x.jpg?v=1648685865"
 const renderedImages = images.map((image) => {
   return (
     <Link to={`/listings/${image.name}`}>
@@ -47,11 +47,11 @@ const renderedImages = images.map((image) => {
 function Home() {
   return (
     <>
-      <Stack>
-        <img id="hero" src={hero} />
+      <Stack >
+          <Box sx={{height: "20%"}} component="img" src={hero}/>
+          <Typography variant="h3" sx={{textAlign: "center", position: "absolute", top: "50%", left: "50%", transform: "translate("-50%", "-50%")" ,color: "white"}}>For really indecisive people who want to get away.</Typography>
       </Stack>
       <Stack>
-          <h3>For really indecisive people who want to get away.</h3>
         <Container mx={4}>
           <Box>
             <ImageList

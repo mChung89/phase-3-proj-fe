@@ -1,4 +1,4 @@
-import { Box, Tabs, Tab, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material';
+import { Box, Tabs, Tab, AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@mui/material';
 import { useState } from 'react'
 import { Link } from "react-router-dom";
 import LoginModal from "./LoginModal"
@@ -19,6 +19,11 @@ function NavBar({ currentUser, setCurrentUser }) {
 
   const [anchorEl, setAnchorEl] = useState(null);
 
+  function handleLogOut () {
+    setCurrentUser("Guest")
+    setAnchorEl(null)
+  }
+
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -33,16 +38,13 @@ function NavBar({ currentUser, setCurrentUser }) {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
+            <Typography
+                variant="h5"
               sx={{ mr: 2 }}
             >
               {" "}
               {currentUser === "Guest" ? "Welcome!" : `Welcome ${currentUser.user}`}
-            </IconButton>
+            </Typography>
             <IconButton
               onClick={handleMenu}
               sx={{ ml: "auto" }}
@@ -71,7 +73,7 @@ function NavBar({ currentUser, setCurrentUser }) {
                 setAnchorEl={setAnchorEl}
                 onClose={handleClose}
               ></LoginModal>
-              {currentUser !== "Guest" ? <MenuItem onClick={() => setCurrentUser("Guest")}>Logout</MenuItem> : null}
+              {currentUser !== "Guest" ? <MenuItem onClick={handleLogOut}>Logout</MenuItem> : null}
             </Menu>
           </Toolbar>
         </AppBar>
@@ -81,7 +83,6 @@ function NavBar({ currentUser, setCurrentUser }) {
           <Tabs
             value={value}
             onChange={handleChange}
-            aria-label="basic tabs example"
           >
             <Tab component={Link} to="/" label="Home" {...a11yProps(0)} />
             <Tab

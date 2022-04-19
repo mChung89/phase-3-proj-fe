@@ -47,8 +47,6 @@ function ListingPage() {
          />
   )})
 
-      
-      console.log(reviewList)
   return (
     <div className='grid'>
       <Grid sx={{ flexGrow: 1 }} container spacing={2}>
