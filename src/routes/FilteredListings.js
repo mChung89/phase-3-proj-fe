@@ -23,6 +23,7 @@ function FilteredListings () {
     const mappedClimateListing = climateListing.map(listing => {
       return (
         <ListingCard 
+          listing={listing}
           key={listing.id} 
           location={listing.location} 
           description={listing.description} 

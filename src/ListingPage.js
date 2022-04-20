@@ -10,12 +10,8 @@ function ListingPage({listings}) {
     setSpacing(Number(event.target.value));
   };
 
-<<<<<<< HEAD
-  const mappedListings = listings.map(listing => {
-=======
   
   const mappedListings = listings?.map(listing => {
->>>>>>> adam_day3
     return (
       <ListingCard
         listing={listing}
