@@ -23,13 +23,13 @@ function ListingModal({ listing, setOpen, open, comment, price }) {
     const { location, description, title, thumbnail } = listing
     const [weather, setWeather] = useState([])
     const city = location.split(",")[0]
-//     useEffect(() => {
-//     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bc33335b724be1c721654cfd1e4d1665`)
-//     .then(res => res.json())
-//     .then(data => {
-//       setWeather(data)
-//       console.log(data)
-//   })},[open])
+  //   useEffect(() => {
+  //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bc33335b724be1c721654cfd1e4d1665`)
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     setWeather(data)
+  //     console.log(data)
+  // })},[open])
 
   function handleClose () {
       setOpen(false)

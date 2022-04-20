@@ -16,7 +16,7 @@ import FormControl from '@mui/material/FormControl';
 
 
 
-function Account({listings, setListings}) {
+function UserAccount({listings, setListings}) {
 
 const [edit, setEdit] = useState(false)
 const [owners, setOwners] = useState({})
@@ -36,7 +36,7 @@ const [formData, setFormData] = useState({
   })
 
 useEffect(() => {
-  fetch(`http://localhost:9292/account/${params.id}`)
+  fetch(`http://localhost:9292/users/${params.id}`)
   .then(res => res.json())
   .then(data => setOwners(data))
 },[listings])
@@ -213,4 +213,4 @@ const mappedAccount = owners?.listings?.map((listing) => {
     </div>
   );
 }
-export default Account
+export default UserAccount
