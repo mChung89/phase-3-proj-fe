@@ -48,8 +48,8 @@ function Home() {
   return (
     <>
       <Stack >
-          <Box sx={{height: "20%"}} component="img" src={hero}/>
-          <Typography variant="h3" sx={{textAlign: "center", position: "absolute", top: "50%", left: "50%", transform: "translate("-50%", "-50%")" ,color: "white"}}>For really indecisive people who want to get away.</Typography>
+          <Box sx={{height: "20%", boxShadow: "5px 10px 18px #888888"}} component="img" src={hero}/>
+          <Typography variant="h3">For really indecisive people who want to get away.</Typography>
       </Stack>
       <Stack>
         <Container mx={4}>
@@ -58,7 +58,7 @@ function Home() {
               gap={0}
               cols={2}
               rowHeight={250}
-              sx={{ overflow: "hidden", borderRadius: 3 }}
+              sx={{ overflow: "hidden", borderRadius: 3, boxShadow: "5px 10px 18px #888888" }}
             >
               {renderedImages}
             </ImageList>

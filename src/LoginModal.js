@@ -31,30 +31,27 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
       setAnchorEl(null)
   }
 
-  const users = [
-    {
-      user: "mike",
-      password: "asdf",
-      id: 1
-    },
-    {
-      user: "adam",
-      password: "qwerty",
-      id: 2
-    },
-  ];
-
   function handleSubmit () {
-      let auth = users.find(user => user.user === loginData.user && user.password === loginData.password)
-      if (auth) {
+    fetch('http://localhost:9292/accounts/authentication', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(loginData)
+    })
+    .then(res => {
+      if (res.ok) {
+        res.json().then(data => {
+          console.log(data.name)
+          setCurrentUser(data.name)
           alert("User authorized");
-          let id = auth.id
-          setCurrentUser(auth)
           handleClose()
-          navigate(`/account/${id}`)
-       } else {
-           alert("Incorrect login info. Please try again")
-       }
+          navigate(`/account/${data.id}`)
+        })
+      } else {
+        alert("Incorrect login info. Please try again")
+      }})
       setLoginData(defaultState)
   }
 

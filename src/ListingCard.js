@@ -30,7 +30,6 @@ function ListingCard({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [weather, setWeather] = useState([])
-const apiKey = "bc33335b724be1c721654cfd1e4d1665"
 
 // useEffect(() => {
 //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`)

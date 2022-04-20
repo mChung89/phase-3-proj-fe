@@ -43,7 +43,7 @@ function NavBar({ currentUser, setCurrentUser }) {
               sx={{ mr: 2 }}
             >
               {" "}
-              {currentUser === "Guest" ? "Welcome!" : `Welcome ${currentUser.user}`}
+              {currentUser === "Guest" ? "Welcome!" : `Welcome ${currentUser}`}
             </Typography>
             <IconButton
               onClick={handleMenu}

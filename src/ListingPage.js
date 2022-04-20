@@ -37,11 +37,6 @@ function ListingPage({listings}) {
          />
   )})
 
-<<<<<<< HEAD
-=======
-      
-     
->>>>>>> another_another
   return (
     <div className='grid'>
       <Grid sx={{ flexGrow: 1 }} container spacing={2}>
