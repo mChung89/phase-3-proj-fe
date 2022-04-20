@@ -10,7 +10,12 @@ function ListingPage({listings}) {
     setSpacing(Number(event.target.value));
   };
 
+<<<<<<< HEAD
   const mappedListings = listings.map(listing => {
+=======
+  
+  const mappedListings = listings?.map(listing => {
+>>>>>>> adam_day3
     return (
       <ListingCard
         listing={listing}
@@ -36,6 +41,10 @@ function ListingPage({listings}) {
          />
   )})
 
+ 
+
+ 
+ 
   return (
     <div className='grid'>
       <Grid sx={{ flexGrow: 1 }} container spacing={2}>
