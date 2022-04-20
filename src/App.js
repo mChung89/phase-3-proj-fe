@@ -6,11 +6,13 @@ import FilteredListings from './routes/FilteredListings'
 import { Routes, Route } from "react-router-dom";
 import Account from './routes/Account'
 import { useState, useEffect } from 'react'
+import ListingCard from './ListingCard';
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState("Guest")
   const [listings, setListings] = useState([])
+  
   
 
   useEffect(() => {
@@ -19,7 +21,6 @@ function App() {
       .then(data => setListings(data))
   }, [])
 
-  
   
   return (
     <div className="App">
