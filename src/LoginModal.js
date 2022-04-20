@@ -44,7 +44,7 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
       if (res.ok) {
         res.json().then(data => {
           console.log(data.name)
-          setCurrentUser(data.name)
+          setCurrentUser(data)
           alert("User authorized");
           handleClose()
           navigate(`/account/${data.id}`)
@@ -60,6 +60,7 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
       let value = e.target.value
       setLoginData({...loginData, [key]:value})
   }
+  console.log(currentUser)
 
   return (
     <div>

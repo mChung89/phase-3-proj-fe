@@ -11,12 +11,13 @@
 }
 
 h3 {
-    position: absolute; 
+    position: absolute;
+    z-index: 3;
     top: 55%;
-    left: 70%;
+    left: 73%;
     transform: translate(-50%, -50%);
     color: white;
-    text-shadow: 5px 5px 10px black
+    text-shadow: 5px 5px 15px black
 }
 
   /* Place text in the middle of the image */

@@ -43,7 +43,7 @@ function NavBar({ currentUser, setCurrentUser }) {
               sx={{ mr: 2 }}
             >
               {" "}
-              {currentUser === "Guest" ? "Welcome!" : `Welcome ${currentUser}`}
+              {currentUser === "Guest" ? "Welcome!" : `Welcome ${currentUser.name}`}
             </Typography>
             <IconButton
               onClick={handleMenu}
@@ -78,8 +78,8 @@ function NavBar({ currentUser, setCurrentUser }) {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{ width: "100%",position: "sticky", top: 0, bgcolor: "white" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Box sx={{ zIndex: 7, display: 'block', width: "100%",position: "sticky", top: 0, bgcolor: "white" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider", bgcolor:'white' }}>
           <Tabs
             value={value}
             onChange={handleChange}

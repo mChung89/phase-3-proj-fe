@@ -10,11 +10,10 @@ function ListingPage({listings}) {
     setSpacing(Number(event.target.value));
   };
 
- 
-
   const mappedListings = listings.map(listing => {
     return (
-      <ListingCard 
+      <ListingCard
+        listing={listing}
         key={listing.id} 
         location={listing.location} 
         description={listing.description} 

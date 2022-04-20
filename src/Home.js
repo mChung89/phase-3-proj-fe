@@ -49,7 +49,7 @@ function Home() {
     <>
       <Stack >
           <Box sx={{height: "20%", boxShadow: "5px 10px 18px #888888"}} component="img" src={hero}/>
-          <Typography variant="h3">For really indecisive people who want to get away.</Typography>
+          <h3>For really indecisive people who want to get away.</h3>
       </Stack>
       <Stack>
         <Container mx={4}>

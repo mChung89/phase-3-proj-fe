@@ -6,16 +6,13 @@ import {
   Button,
   CardActionArea,
   CardActions,
-  Stack,
-  Grid,
 } from "@mui/material";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import { useState, useEffect } from "react";
 import { Alert } from "@mui/material";
-import Weather from "./Weather";
+import ListingModal from './ListingModal'
 
 function ListingCard({
+  listing,
   location,
   description,
   price,
@@ -29,15 +26,6 @@ function ListingCard({
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [weather, setWeather] = useState([])
-
-// useEffect(() => {
-//   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`)
-//   .then(res => res.json())
-//   .then(data => {
-//     setWeather(data)
-// })},[open])
-
   const randRating = Math.floor(Math.random() * 11);
   const style = {
     position: "absolute",
@@ -87,45 +75,7 @@ function ListingCard({
               </Alert>
             )}
           </Button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                {title}
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                <Stack direction="row">
-                  <Grid container xs={7}>
-                    <li>Daily Rate: ${price}</li>
-                    <li>Location Type: {type}</li>
-                    <li>
-                      <em>{location}</em>
-                    </li>
-                    {/* {weather !== [] ? <Weather weather={weather} /> : null} */}
-                    <li>Placeholder for weather</li>
-                  </Grid>
-                  <Grid direction="column" container xs={5}>
-                    <Box component="img" src={image} sx={{ height: 120 }} />
-                  </Grid>
-                </Stack>
-                <Box pt={2}>
-                  <li>{description}</li>
-                  {/* <Paper>
-              </Paper> */}
-                </Box>
-                <p>---Reviews---</p>
-                <ul>
-                  {comment.length < 1
-                    ? "No users have reviewed this listing!"
-                    : comment}
-                </ul>
-              </Typography>
-            </Box>
-          </Modal>
+          <ListingModal listing={listing} price={price} comment={comment} setOpen={setOpen} open={open}/>
         </div>
       </CardActions>
     </Card>
