@@ -7,8 +7,9 @@ import { Routes, Route } from "react-router-dom";
 import Account from './routes/Account'
 import UserAccount from './routes/UserAccount'
 import { useState, useEffect } from 'react'
-
-
+import { ThemeProvider } from '@mui/material';
+import { fontFamily } from '@mui/system';
+import theme from './Theme';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({user_type: "Guest"})
@@ -25,7 +26,8 @@ function App() {
 
   
   return (
-      
+      <ThemeProvider theme={theme}>
+        
     <div className="App">
       <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       <Routes>
@@ -36,7 +38,8 @@ function App() {
         <Route path="/users/:id" element={<UserAccount currentUser={currentUser} listings={listings} setListings={setListings}/>} />
       </Routes>
     </div>
-      
+    
+  </ThemeProvider>
   );
 }
 

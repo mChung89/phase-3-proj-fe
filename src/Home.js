@@ -2,7 +2,13 @@ import { Box, Container, Stack, ImageList, ImageListItem, ImageListItemBar, Typo
 import { Link } from "react-router-dom";
 import './styles/home.css';
 import hero from './images/borabora.jpeg'
-
+import hero2 from './images/hero-city.jpg'
+import hero3 from './images/winterimage.jpg'
+import hero1 from './images/mountain-hero.jpg'
+import Slideshow from "./Slideshow";
+import React, {useState, useEffect} from 'react';
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css'
 const images = [
   {
     image:
@@ -29,6 +35,11 @@ const images = [
   },
 ];
 
+const slideImages = [hero, hero1, hero2, hero3]
+
+
+
+
 const renderedImages = images.map((image) => {
   return (
     <Link to={`/listings/${image.name}`}>
@@ -45,11 +56,37 @@ const renderedImages = images.map((image) => {
 });
 
 function Home() {
+
+  const [count, setCount] = useState(0);
+  const [mousedOver, setMousedOver] = useState(false);
+ 
+  useEffect(() => {
+  
+    if (mousedOver) {
+      const timer = setInterval(() => {
+    
+        setCount((prevCount) => (prevCount + 1) % images.length);
+      }, 5000);
+  
+      return () => clearInterval(timer);
+    } else {
+     
+      setCount(0);
+    }
+  
+  }, [mousedOver]);
+
+  console.log(count)
+
   return (
     <>
       <Stack >
-          <Box sx={{height: "20%", boxShadow: "5px 10px 18px #888888"}} component="img" src={hero}/>
-          <h3 style={{fontFamily: "font-family: 'Bebas Neue', cursive;"}}>For really indecisive people who want to get away.</h3>
+          <Box sx={{height: "20%", boxShadow: "5px 10px 18px #888888"}} component="img" src={slideImages[count]} className="fade-in-image fade-out-image"/>
+          
+          <div onMouseOver={() => setMousedOver(true)}>
+          <h3>For really indecisive people who want to get away.</h3>
+            </div>
+        
       </Stack>
       <Stack>
         <Container mx={4}>
