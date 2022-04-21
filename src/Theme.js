@@ -28,6 +28,11 @@ const theme = createTheme({
       '"Segoe UI Symbol"',
     ].join(','),
   },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
+    },
+  }
 })
 
 export default theme

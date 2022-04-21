@@ -65,7 +65,7 @@ function Home() {
     if (mousedOver) {
       const timer = setInterval(() => {
     
-        setCount((prevCount) => (prevCount + 1) % images.length);
+        setCount((prevCount) => (prevCount + 1) % slideImages.length);
       }, 5000);
   
       return () => clearInterval(timer);
