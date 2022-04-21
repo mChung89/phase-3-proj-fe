@@ -4,8 +4,6 @@ import { useState } from 'react'
 import { Outlet } from "react-router-dom"
 
 function ListingPage({listings}) {
-<<<<<<< HEAD
-=======
   const [spacing, setSpacing] = useState(2);
 
   const handleChange = (event) => {
@@ -13,19 +11,23 @@ function ListingPage({listings}) {
   };
 
   
->>>>>>> adam_day4
   const mappedListings = listings?.map(listing => {
+    const date = new Date()
+    const day = date.getDate()
+    const month =  Date().slice(3,7)
+    const currentDate = month + " " + day
+    const dateRange = currentDate + " - " + month + " " + (day + Math.ceil((Math.random() * 10)))
     return (
-      <Grid item>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
       <ListingCard
         listing={listing}
+        date={dateRange}
         key={listing.id} 
         location={listing.location} 
         description={listing.description} 
         price={listing.price_per_day}
         type={listing.climate_type} 
-        title={listing.title} 
-        date={listing.created_at} 
+        title={listing.title}  
         image={listing.thumbnail}
         comment={listing?.reviews?.map((review) => {
           return(
@@ -42,17 +44,13 @@ function ListingPage({listings}) {
          </Grid>
   )})
 
- 
-
- 
- 
   return (
-    <div className='grid'>
+    <Grid pl={1}>
       <Grid sx={{ flexGrow: 1 }} spacing={1} container>
             {mappedListings}
       </Grid>
       <Outlet />
-    </div>
+    </Grid>
   )
 }
 

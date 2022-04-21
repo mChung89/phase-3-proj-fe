@@ -3,6 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import {
+  Grid,
   Button,
   CardActionArea,
   CardActions,
@@ -14,12 +15,10 @@ import ListingModal from './ListingModal'
 function ListingCard({
   listing,
   location,
-  description,
   price,
   title,
   date,
   image,
-  type,
   comment,
 }) {
   const [booked, setBooked] = useState(false);
@@ -27,17 +26,6 @@ function ListingCard({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const randRating = Math.floor(Math.random() * 11);
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 500,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
 
   function handleBooking() {
     setBooked((prev) => !prev);
@@ -45,26 +33,25 @@ function ListingCard({
   
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+    <Card sx={{ maxWidth: 345, height: 380 }}>
+      <CardActionArea >
         <CardMedia
           component="img"
           height="140"
           image={image}
           alt="mapped vacation images"
         />
-        <CardContent>
+        <CardContent sx={{height: 150}}>
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             <ul>{location}</ul>
-            <ul>{date}</ul>
+            <ul>Availability: {date}</ul>
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <div>
+      <CardActions zeroMinWidth='true' pb={1}>
           <Button onClick={handleOpen}>More info</Button>
           <Button onClick={handleBooking}>
             {!booked ? (
@@ -76,7 +63,6 @@ function ListingCard({
             )}
           </Button>
           <ListingModal key={listing.id} listing={listing} price={price} comment={comment} setOpen={setOpen} open={open}/>
-        </div>
       </CardActions>
     </Card>
   );
