@@ -75,7 +75,7 @@ function ListingCard({
               </Alert>
             )}
           </Button>
-          <ListingModal listing={listing} price={price} comment={comment} setOpen={setOpen} open={open}/>
+          <ListingModal key={listing.id} listing={listing} price={price} comment={comment} setOpen={setOpen} open={open}/>
         </div>
       </CardActions>
     </Card>

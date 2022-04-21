@@ -69,7 +69,6 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
           setCurrentUser(data)
           alert("User authorized");
           handleClose()
-          console.log(currentUser)
           navigate(`/users/${data.id}`)
         })
       } else {
@@ -90,7 +89,6 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
   }
 
   function menuItemChooser (userType) {
-    console.log(userType)
     if (userType === "Guest") {
       return <MenuItem onClick={handleOpen}>Login</MenuItem>
     } else if (userType === 'owner') {
@@ -129,19 +127,19 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
           >
             Password
           </TextField>
-          <Grid container column>
-            <Grid sx={{bgcolor: 'red'}} item xs={12}>
+          <Grid container>
+            <Grid item xs={12}>
             <RadioGroup
               row
-              justifyContent='center'
               onChange={handleChange}
             >
               <FormControlLabel
+              labelPlacement="bottom"
                 value="owner"
                 control={<Radio size="small"/>}
                 label="owner"
               />
-              <FormControlLabel value="user" control={<Radio size="small"/>} label="user" />
+              <FormControlLabel labelPlacement="bottom" value="user" control={<Radio size="small"/>} label="user" />
             </RadioGroup>
             </Grid>
           </Grid>

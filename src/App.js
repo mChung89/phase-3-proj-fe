@@ -22,7 +22,6 @@ function App() {
       .then(data => setListings(data))
   }, [])
 
-  console.log(currentUser)
   
   return (
     <div className="App">

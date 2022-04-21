@@ -18,7 +18,6 @@ function FilteredListings () {
           .then(res => res.json())
           .then(setClimateListing)
       }, [])
-    console.log(climateListing)
 
     const mappedClimateListing = climateListing.map(listing => {
       return (
