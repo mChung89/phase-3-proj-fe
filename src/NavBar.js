@@ -1,6 +1,6 @@
 import { Box, Tabs, Tab, AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@mui/material';
 import { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal"
 
 function a11yProps(index) {
@@ -11,7 +11,8 @@ function a11yProps(index) {
 }
 
 function NavBar({ currentUser, setCurrentUser }) {
-    const [value, setValue] = useState(0);
+  const navigate = useNavigate()
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -20,8 +21,9 @@ function NavBar({ currentUser, setCurrentUser }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   function handleLogOut () {
-    setCurrentUser("Guest")
+    setCurrentUser({user_type: "Guest"})
     setAnchorEl(null)
+    navigate(`/listings`)
   }
 
 
@@ -43,7 +45,7 @@ function NavBar({ currentUser, setCurrentUser }) {
               sx={{ mr: 2 }}
             >
               {" "}
-              {currentUser === "Guest" ? "Welcome!" : `Welcome ${currentUser.name}`}
+              {currentUser.user_type === "Guest" ? "Welcome!" : `Welcome ${currentUser.name}`}
             </Typography>
             <IconButton
               onClick={handleMenu}
@@ -73,7 +75,7 @@ function NavBar({ currentUser, setCurrentUser }) {
                 setAnchorEl={setAnchorEl}
                 onClose={handleClose}
               ></LoginModal>
-              {currentUser !== "Guest" ? <MenuItem onClick={handleLogOut}>Logout</MenuItem> : null}
+              {currentUser.user_type !== "Guest" ? <MenuItem onClick={handleLogOut}>Logout</MenuItem> : null}
             </Menu>
           </Toolbar>
         </AppBar>

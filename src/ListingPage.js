@@ -4,15 +4,9 @@ import { useState } from 'react'
 import { Outlet } from "react-router-dom"
 
 function ListingPage({listings}) {
-  const [spacing, setSpacing] = useState(2);
-
-  const handleChange = (event) => {
-    setSpacing(Number(event.target.value));
-  };
-
-  
   const mappedListings = listings?.map(listing => {
     return (
+      <Grid item>
       <ListingCard
         listing={listing}
         key={listing.id} 
@@ -35,6 +29,7 @@ function ListingPage({listings}) {
         })}
         
          />
+         </Grid>
   )})
 
  
@@ -43,13 +38,8 @@ function ListingPage({listings}) {
  
   return (
     <div className='grid'>
-      <Grid sx={{ flexGrow: 1 }} container spacing={2}>
-        <Grid item xs={12}>
-          <Grid container justifyContent="center" spacing={spacing}>
+      <Grid sx={{ flexGrow: 1 }} spacing={1} container>
             {mappedListings}
-            
-          </Grid>
-        </Grid>
       </Grid>
       <Outlet />
     </div>

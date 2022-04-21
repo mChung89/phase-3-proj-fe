@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import AddComment from './AddComment'
 import { useEffect, useState } from 'react'
 import Weather from "./Weather";
 const style = {
@@ -23,13 +22,13 @@ function ListingModal({ listing, setOpen, open, comment, price }) {
     const { location, description, title, thumbnail } = listing
     const [weather, setWeather] = useState([])
     const city = location.split(",")[0]
-//     useEffect(() => {
-//     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bc33335b724be1c721654cfd1e4d1665`)
-//     .then(res => res.json())
-//     .then(data => {
-//       setWeather(data)
-//       console.log(data)
-//   })},[open])
+  //   useEffect(() => {
+  //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bc33335b724be1c721654cfd1e4d1665`)
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     setWeather(data)
+  //     console.log(data)
+  // })},[open])
 
   function handleClose () {
       setOpen(false)
@@ -52,7 +51,7 @@ function ListingModal({ listing, setOpen, open, comment, price }) {
               <li>Placeholder for weather</li>
             </Grid>
             <Grid direction="column" container xs={5}>
-              <Box component="img" src={thumbnail} sx={{ height: 120 }} />
+              <Box component="img" src={thumbnail} sx={{ borderRadius: 2, height: 120, boxShadow: "5px 5px 5px #888888" }} />
             </Grid>
           </Stack>
           <Box pt={2}>
@@ -65,7 +64,6 @@ function ListingModal({ listing, setOpen, open, comment, price }) {
             <Typography item variant="p"> --Reviews-- </Typography>
             </Grid>
             <Grid item xs={8}>
-            <AddComment />
             </Grid>
           </Grid>
           <ul>

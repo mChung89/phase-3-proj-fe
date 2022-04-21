@@ -1,4 +1,4 @@
-import { Box, Paper, Container, Stack, ImageList, ImageListItem, ImageListItemBar, Typography } from "@mui/material";
+import { Box, Container, Stack, ImageList, ImageListItem, ImageListItemBar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import './styles/home.css';
 import hero from './images/borabora.jpeg'
