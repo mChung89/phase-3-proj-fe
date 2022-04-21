@@ -19,13 +19,21 @@ import FormControl from '@mui/material/FormControl';
 
 function Account({listings, setListings}) {
 
+  let params = useParams()
 const [edit, setEdit] = useState(false)
 const [owners, setOwners] = useState({})
-const [input, setInput] = useState('')
+const [input, setInput] = useState({
+  title: "",
+  location: "",
+  description: "",
+  price_per_day: 0,
+  climate_type: "",
+  thumbnail: "",
+  owner_id: params.id
+})
 const [open, setOpen] = React.useState(false);
 const handleOpen = () => setOpen(true);
 const handleClose = () => setOpen(false);
-let params = useParams()
 const [formData, setFormData] = useState({
     title: "",
     location: "",
@@ -60,30 +68,28 @@ function handleEdit(){
 }
 
 function handleChange(e){
-  setInput(e.target.value)
+  setInput({...input, [e.target.name]: e.target.value})
 }
-console.log(formData)
+
 
 function editListing(e){
-  
+
   fetch(`http://localhost:9292/listings/${e.target.id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      description: input
-    }),
+    body: JSON.stringify(input),
   })
     .then(res => res.json())
-    .then(data => setListings(listings.map(listing => {return listing.id === data.id ? data : listing}))
+    .then(data => setListings(listings.map(listing => {return listing.id === input.id ? input : listing}))
 )
 }
 
 function handleForm(e){
   setFormData({...formData, [e.target.name]: e.target.value})
 }
-
+console.log(input)
 function handleSubmit (event){
   event.preventDefault()
  // const added = listings.slice()
@@ -138,20 +144,49 @@ const mappedAccount = owners?.listings?.map((listing) => {
       aria-controls="panel1a-content"
       id="panel1a-header"
     >
-      <Typography>Listing Title: {listing.title}</Typography>
+      <Typography>{listing.title}:</Typography>
      </AccordionSummary>
      <AccordionDetails>
        {edit ? 
-
+        <>
 <Box sx={{ width: 1500, maxWidth: '100%',}} style={{textAlign: "center"}} >
-       
-       <TextField fullWidth id="fullWidth" placeholder={listing.description} onChange={handleChange} value={input}/>
-        <Button id={listing.id} onClick={editListing}>Save</Button>
+         <TextField style={{margin: "5px 5px 5px 5px"}} required id="outlined-required" type="text" name="title" placeholder={listing.title} onChange={handleChange} value={input.title}/>
+         <TextField style={{margin: "5px 5px 5px 5px"}} required id="outlined-required" type="number" name="price_per_day" placeholder={listing.price_per_day} onChange={handleChange} value={input.price_per_day}/>
+         <TextField style={{margin: "5px 5px 5px 5px"}} required id="outlined-required" type="text" name="location" placeholder={listing.location} onChange={handleChange} value={input.location}/>
+        <Select
+          sx={{width: '15%'}}
+          labelId="Climate-cat-select"
+          id="simple-select"
+          name="climate_type"
+          label="Category Select"
+          placeholder='select a category'
+          onChange={handleChange}
+          value={input.climate_type}
+        >
+         
+          <MenuItem value="mountain" >mountain</MenuItem>
+          <MenuItem value="city">city</MenuItem>
+          <MenuItem value="tropical">tropical</MenuItem>
+          <MenuItem value="arctic">arctic</MenuItem>
+          
+        </Select>
+  
+         <TextField style={{margin: "5px 5px 5px 5px"}} fullWidth required id="outlined-required" type="text" placeholder={listing.description} name="description" onChange={handleChange} value={input.description}/>
+         <TextField style={{margin: "5px 5px 5px 5px"}} fullWidth required id="outlined-required" type="text" name="thumbnail" placeholder={listing.thumbnail} onChange={handleChange} value={input.thumbnail}/>
       </Box>
+      <Button id={listing.id} onClick={editListing}>Save</Button>
+      </>
      :
       
       <Typography>
-        Listing Description: {listing.description}
+        <ul>
+      <ul><strong>Title:</strong> {listing.title}</ul>
+       <ul><strong>Description:</strong> {listing.description}</ul>
+       <ul><strong>Location:</strong> {listing.location}</ul>
+       <ul><strong> Thumbnail URL:</strong> {listing.thumbnail}</ul>
+       <ul><strong>Category:</strong> {listing.climate_type}</ul>
+       <ul><strong> Daily Rate:</strong> ${listing.price_per_day} </ul>
+        </ul>
       </Typography>}
 
      </AccordionDetails>

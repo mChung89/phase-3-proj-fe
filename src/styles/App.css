@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display&family=Raleway:wght@300&family=Ramaraja&family=Whisper&display=swap');
 .App {
   text-align: center;
 }
@@ -12,3 +13,79 @@
   ul {
     text-align: center;
   }
+
+  .MuiTabs-flexContainer,  body{
+    background-color: antiquewhite;
+    
+  }
+  
+  div.css-1t6e9jv-MuiCardActions-root {
+    background-color: white;
+    
+  }
+
+  
+ 
+  * {
+    font-family:'Bebas Neue', cursive;
+  }
+
+  h5{
+    font-family:'Bebas Neue', cursive;
+  }
+
+  h3 {
+    font-family: 'Whisper', cursive;
+    font-size: 32px;
+  }
+
+  button.css-1xc5vrt-MuiButtonBase-root-MuiButton-root {
+    background-color: #e53935;
+    color: white;
+    
+    
+  }
+  button.css-1xc5vrt-MuiButtonBase-root-MuiButton-root:hover{
+    background-color: rgba(255,99,99,0.56);
+  }
+
+  #simple-tab-0:hover, #simple-tab-1:hover, #simple-tab-2:hover {
+    color: white;
+    background-color: #e53935;
+    opacity: 0.6;
+    transition: 0.3s;
+  }
+
+  h5.css-1xbhcb0-MuiTypography-root, div.css-1bhpast-MuiTypography-root {
+    font-family: 'Bebas Neue', cursive;
+    font-size: x-large
+   }
+
+   img.css-b7c5r4 {
+     height: 800px;
+     width: 100%;
+   }
+
+
+   @keyframes fadeIn {
+     0% {opacity:0;}
+     100% {opacity:1;}
+   }
+
+   @keyframes fadeOut {
+    100% {opacity:1;}
+    0% {opacity:0;}
+   }
+
+   .fade-in-image {
+    animation: fadeIn 2s;
+  }
+
+  .fade-out-image {
+    animation: fadeOut 5s;
+  }
+
+  p.css-lfylnp-MuiTypography-root {
+    margin-right: 50px;
+  }
+

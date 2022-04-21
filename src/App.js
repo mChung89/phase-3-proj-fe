@@ -6,8 +6,9 @@ import FilteredListings from './routes/FilteredListings'
 import { Routes, Route } from "react-router-dom";
 import Account from './routes/Account'
 import { useState, useEffect } from 'react'
-import ListingCard from './ListingCard';
-
+import { ThemeProvider } from '@mui/material';
+import { fontFamily } from '@mui/system';
+import theme from './Theme';
 
 function App() {
   const [currentUser, setCurrentUser] = useState("Guest")
@@ -23,6 +24,8 @@ function App() {
 
   
   return (
+      <ThemeProvider theme={theme}>
+        
     <div className="App">
       <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       <Routes>
@@ -32,6 +35,8 @@ function App() {
         <Route path="/account/:id" element={<Account currentUser={currentUser} listings={listings} setListings={setListings}/>} />
       </Routes>
     </div>
+    
+  </ThemeProvider>
   );
 }
 

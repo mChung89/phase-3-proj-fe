@@ -10,12 +10,8 @@ function ListingPage({listings}) {
     setSpacing(Number(event.target.value));
   };
 
-<<<<<<< HEAD
-  const mappedListings = listings.map(listing => {
-=======
   
   const mappedListings = listings?.map(listing => {
->>>>>>> adam_day3
     return (
       <ListingCard
         listing={listing}
@@ -27,7 +23,7 @@ function ListingPage({listings}) {
         title={listing.title} 
         date={listing.created_at} 
         image={listing.thumbnail}
-        comment={listing.reviews.map((review) => {
+        comment={listing?.reviews?.map((review) => {
           return(
             <>
             <li>{review.user.name} said: {review.comment}<br>
