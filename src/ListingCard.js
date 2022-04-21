@@ -45,7 +45,7 @@ function ListingCard({
   
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, disableRipple: true }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -66,15 +66,15 @@ function ListingCard({
       <CardActions>
         <div>
           <Button onClick={handleOpen}>More info</Button>
-          <Button onClick={handleBooking}>
+            <>
             {!booked ? (
-              "Click Here to Reserve now!"
+             <Button onClick={handleBooking}> "Click Here to Reserve now!" </Button>
             ) : (
-              <Alert variant="filled" severity="success">
+              <Alert variant="filled" severity="success"  onClick={handleBooking}>
                 Your reservation is booked!
               </Alert>
             )}
-          </Button>
+          </>
           <ListingModal key={listing.id} listing={listing} price={price} comment={comment} setOpen={setOpen} open={open}/>
         </div>
       </CardActions>

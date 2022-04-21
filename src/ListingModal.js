@@ -43,9 +43,13 @@ function ListingModal({ listing, setOpen, open, comment, price }) {
         <Typography sx={{ mt: 2 }}>
           <Stack direction="row">
             <Grid container xs={7}>
-              <li>Daily Rate: ${price}</li>
-              <li>
+              <li>Daily Rate: ${price}
+              
+              
+              <p>
                 <em>{location}</em>
+              </p>
+                
               </li>
               {/* {weather !== [] ? <Weather weather={weather} /> : null} */}
               <li>Placeholder for weather</li>
