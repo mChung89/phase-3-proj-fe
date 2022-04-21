@@ -19,6 +19,7 @@ const style = {
 
 
 function ListingModal({ listing, setOpen, open, comment, price }) {
+  console.log(listing)
     const { location, description, title, thumbnail } = listing
     const [weather, setWeather] = useState([])
     const city = location.split(",")[0]

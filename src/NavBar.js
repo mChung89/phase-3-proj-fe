@@ -1,7 +1,9 @@
-import { Box, Tabs, Tab, AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@mui/material';
+import { Box, Tabs, Tab, AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Icon } from '@mui/material';
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal"
+import icon from './images/beach.jpeg'
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 
 function a11yProps(index) {
   return {
@@ -40,12 +42,13 @@ function NavBar({ currentUser, setCurrentUser }) {
       <Box sx={{ flexGrow: 1 }} >
         <AppBar position="static">
           <Toolbar>
-            <Typography
-                variant="h5"
-              sx={{ mr: 2 }}
+          <BeachAccessIcon />            
+        <Typography
+              variant="h5"
+              sx={{ pl:3, mr: 2, fontFamily:'Bebas Neue, cursive'}}
             >
               {" "}
-              {currentUser.user_type === "Guest" ? "Welcome!" : `Welcome ${currentUser.name}`}
+              {currentUser.user_type === "Guest" ? "  Welcome!" : `  Welcome ${currentUser.name}`}
             </Typography>
             <IconButton
               onClick={handleMenu}

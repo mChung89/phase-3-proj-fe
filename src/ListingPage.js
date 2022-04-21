@@ -4,12 +4,6 @@ import { useState } from 'react'
 import { Outlet } from "react-router-dom"
 
 function ListingPage({listings}) {
-  const [spacing, setSpacing] = useState(2);
-
-  const handleChange = (event) => {
-    setSpacing(Number(event.target.value));
-  };
-
   
   const mappedListings = listings?.map(listing => {
     const date = new Date()

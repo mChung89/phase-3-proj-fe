@@ -1,4 +1,4 @@
-import { Box, Container, Stack, ImageList, ImageListItem, ImageListItemBar, Typography } from "@mui/material";
+import { Box, Container, Stack, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import { Link } from "react-router-dom";
 import './styles/home.css';
 import hero from './images/borabora.jpeg'
@@ -7,7 +7,6 @@ import hero3 from './images/winterimage.jpg'
 import hero1 from './images/mountain-hero.jpg'
 import Slideshow from "./Slideshow";
 import React, {useState, useEffect} from 'react';
-import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 const images = [
   {
@@ -38,8 +37,6 @@ const images = [
 const slideImages = [hero, hero1, hero2, hero3]
 
 
-
-
 const renderedImages = images.map((image) => {
   return (
     <Link to={`/listings/${image.name}`}>
@@ -56,7 +53,6 @@ const renderedImages = images.map((image) => {
 });
 
 function Home() {
-
   const [count, setCount] = useState(0);
   const [mousedOver, setMousedOver] = useState(false);
  
@@ -77,15 +73,13 @@ function Home() {
   }, [mousedOver]);
 
   console.log(count)
+  let heroImage = <Box onMouseOver={() => setMousedOver(true)} sx={{height: "20%", boxShadow: "5px 10px 18px #888888"}} component="img" src={slideImages[count]} className="fade-in-image fade-out-image"/>
 
   return (
     <>
       <Stack >
-          <Box sx={{height: "20%", boxShadow: "5px 10px 18px #888888"}} component="img" src={slideImages[count]} className="fade-in-image fade-out-image"/>
-          
-          <div onMouseOver={() => setMousedOver(true)}>
+          {heroImage}
           <h3>For really indecisive people who want to get away.</h3>
-            </div>
         
       </Stack>
       <Stack>
