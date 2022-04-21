@@ -6,13 +6,13 @@ import FilteredListings from './routes/FilteredListings'
 import { Routes, Route } from "react-router-dom";
 import Account from './routes/Account'
 import { useState, useEffect } from 'react'
-import ListingCard from './ListingCard';
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState("Guest")
   const [listings, setListings] = useState([])
   
+ 
   
 
   useEffect(() => {
@@ -23,6 +23,7 @@ function App() {
 
   
   return (
+      
     <div className="App">
       <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       <Routes>
@@ -32,6 +33,7 @@ function App() {
         <Route path="/account/:id" element={<Account currentUser={currentUser} listings={listings} setListings={setListings}/>} />
       </Routes>
     </div>
+      
   );
 }
 
