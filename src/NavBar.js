@@ -45,7 +45,7 @@ function NavBar({ currentUser, setCurrentUser }) {
           <BeachAccessIcon />            
         <Typography
               variant="h5"
-              sx={{ pl:3, mr: 2, fontFamily:'Bebas Neue, cursive'}}
+              sx={{ pl:3, mr: 2, minWidth: 200, fontFamily:'Bebas Neue, cursive'}}
             >
               {" "}
               {currentUser.user_type === "Guest" ? "  Welcome!" : `  Welcome ${currentUser.name}`}
