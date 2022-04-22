@@ -26,10 +26,10 @@ function ListingPage({listings}) {
         comment={listing?.reviews?.map((review) => {
           return(
             <>
-            <li>{review.user.name} said: {review.comment}<br>
+            <ul>{review.user.name} said: {review.comment}<br>
             </br>
             Rating: {review.rating}/10
-            </li>
+            </ul>
             </>
           )
         })}

@@ -90,3 +90,20 @@
     margin-right: 50px;
   }
 
+  div.css-1gi3bo0-MuiPaper-root-MuiAlert-root {
+    float: right;
+    max-height: 24px;
+    cursor: pointer;
+  }
+
+  div.css-acap47-MuiAlert-message{
+    padding:8px 24px 8px 8px;
+    
+    min-width: 226;
+  }
+
+  div.css-acap47-MuiAlert-message:hover, div.css-1gi3bo0-MuiPaper-root-MuiAlert-root:hover{
+    background-color: forestgreen;
+    opacity: 0.6;
+    transition: 0.3s;
+  }
