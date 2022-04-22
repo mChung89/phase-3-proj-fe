@@ -2,14 +2,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import {
-  Grid,
-  Button,
-  CardActionArea,
-  CardActions,
-} from "@mui/material";
-import { useState, useEffect } from "react";
-import { Alert } from "@mui/material";
+import { Button, CardActionArea, CardActions, Alert } from "@mui/material";
+import { useState } from "react";
 import ListingModal from './ListingModal'
 
 function ListingCard({
@@ -25,7 +19,6 @@ function ListingCard({
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const randRating = Math.floor(Math.random() * 11);
 
   function handleBooking() {
     setBooked((prev) => !prev);
@@ -51,13 +44,13 @@ function ListingCard({
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions zeroMinWidth='true' pb={1}>
+      <CardActions zeroMinWidth='true'>
           <Button onClick={handleOpen}>More info</Button>
             <>
             {!booked ? (
-             <Button onClick={handleBooking}> "Click Here to Reserve now!" </Button>
+             <Button onClick={handleBooking}>Click Here to Reserve now!</Button>
             ) : (
-              <Alert variant="filled" severity="success"  onClick={handleBooking}>
+              <Alert sx={{ml: "8px", maxHeight: 24}} variant="filled" severity="success"  onClick={handleBooking}>
                 Your reservation is booked!
               </Alert>
             )}

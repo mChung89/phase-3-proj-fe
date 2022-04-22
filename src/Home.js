@@ -5,7 +5,6 @@ import hero from './images/borabora.jpeg'
 import hero2 from './images/hero-city.jpg'
 import hero3 from './images/winterimage.jpg'
 import hero1 from './images/mountain-hero.jpg'
-import Slideshow from "./Slideshow";
 import React, {useState, useEffect} from 'react';
 import 'react-slideshow-image/dist/styles.css'
 const images = [

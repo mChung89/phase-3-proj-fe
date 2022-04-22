@@ -1,9 +1,9 @@
-import { Box, Tabs, Tab, AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Icon } from '@mui/material';
+import { Box, Tabs, Tab, AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Grid } from '@mui/material';
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal"
-import icon from './images/beach.jpeg'
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 function a11yProps(index) {
   return {
@@ -50,6 +50,10 @@ function NavBar({ currentUser, setCurrentUser }) {
               {" "}
               {currentUser.user_type === "Guest" ? "  Welcome!" : `  Welcome ${currentUser.name}`}
             </Typography>
+            <Grid pr={3} container justifyContent="flex-end">
+            <GitHubIcon />
+            <GitHubIcon />
+            </Grid>
             <IconButton
               onClick={handleMenu}
               sx={{ ml: "auto" }}

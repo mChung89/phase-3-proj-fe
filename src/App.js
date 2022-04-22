@@ -8,7 +8,6 @@ import Account from './routes/Account'
 import UserAccount from './routes/UserAccount'
 import { useState, useEffect } from 'react'
 import { ThemeProvider } from '@mui/material';
-import { fontFamily } from '@mui/system';
 import theme from './Theme';
 
 function App() {

@@ -133,6 +133,7 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
               row
               onChange={handleChange}
             >
+              <Grid container justifyContent="center">
               <FormControlLabel
               labelPlacement="bottom"
                 value="owner"
@@ -140,6 +141,7 @@ function LoginModal ({ setAnchorEl, setCurrentUser, currentUser }) {
                 label="owner"
               />
               <FormControlLabel labelPlacement="bottom" value="user" control={<Radio size="small"/>} label="user" />
+              </Grid>
             </RadioGroup>
             </Grid>
           </Grid>
