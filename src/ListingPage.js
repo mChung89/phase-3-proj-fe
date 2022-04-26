@@ -14,6 +14,7 @@ function ListingPage({listings}) {
     return (
       <Grid item xs={12} sm={6} md={4} lg={3}>
       <ListingCard
+        listings={listings}
         listing={listing}
         date={dateRange}
         key={listing.id} 

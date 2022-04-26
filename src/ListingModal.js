@@ -18,18 +18,16 @@ const style = {
 };
 
 
-function ListingModal({ listing, setOpen, open, comment, price }) {
-  console.log(listing)
+function ListingModal({ listings, listing, setOpen, open, comment, price }) {
     const { location, description, title, thumbnail } = listing
     const [weather, setWeather] = useState([])
     const city = location.split(",")[0]
     useEffect(() => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bc33335b724be1c721654cfd1e4d1665`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => {
       setWeather(data)
-      console.log(data)
-  })},[open])
+  })},[listings])
 
   function handleClose () {
       setOpen(false)
@@ -43,12 +41,11 @@ function ListingModal({ listing, setOpen, open, comment, price }) {
         </Typography>
         <Typography sx={{ mt: 2 }}>
           <Stack direction="row">
-            <Grid container xs={7}>
+            <Grid container pr={3} xs={7}>
               <ul>
                 <li>Daily Rate: ${price}</li>
                 <li><em>{location}</em></li>
               {weather !== [] ? <Weather weather={weather} /> : null}
-              <li>Placeholder for weather</li>
               </ul>
             </Grid>
             <Grid direction="column" container xs={5}>
@@ -56,7 +53,7 @@ function ListingModal({ listing, setOpen, open, comment, price }) {
             </Grid>
           </Stack>
           <Box pt={2}>
-            <Typography component="body1" variant="body" align="justify">
+            <Typography variant="body" align="justify">
             {description}
             </Typography>
           </Box>

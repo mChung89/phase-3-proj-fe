@@ -71,7 +71,6 @@ function Home() {
   
   }, [mousedOver]);
 
-  console.log(count)
   let heroImage = <Box onMouseOver={() => setMousedOver(true)} sx={{height: "20%", boxShadow: "5px 10px 18px #888888"}} component="img" src={slideImages[count]} className="fade-in-image fade-out-image"/>
 
   return (

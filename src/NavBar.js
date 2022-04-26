@@ -100,7 +100,6 @@ function NavBar({ currentUser, setCurrentUser }) {
               label="Listings"
               {...a11yProps(1)}
             />
-            <Tab label="Something" {...a11yProps(2)} />
           </Tabs>
         </Box>
       </Box>
